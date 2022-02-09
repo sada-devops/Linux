@@ -1,0 +1,54 @@
+Human users
+    user id UID, group id GID - unique identifiers. A user has a primary group and can be part of multiple groups.
+    Each user own a home directory, /home/user.
+    Privilages define access to services.
+
+system users
+    Represents system user and services.
+    do not have home directory.
+    cannot login using system user.
+
+useradd and groupadd behave differently in ubuntu vs redhat
+
+To check integrity of etc/passwd
+    pwck
+    pwck -q (shows erros in etc/passwd file)
+    grpck
+
+root user > super user (access to everything)
+    user can be added to root.
+
+normal user > enough privilage to acces services or commands
+
+/etc/passwd > to check all users
+
+/etc/group > to check all the groups
+
+/etc/login.defs > shows default values and settings
+
+useradd > create a user
+    useradd -D > shows default settings
+
+userdel > delete a user (does not remove home directory)
+    userdel -r username (removes home directory too)
+
+usermod > make changes to a user
+    usermod -aG groupname user > to add a user to a group
+
+usermod --expiredate -1 > to temporarily disable a user
+
+passwd > to change password of a user
+
+groupadd > create a group
+groupdel > to delete a group
+
+id username > shows user id, group id
+    id -un username > shows effective userid
+
+find / uid > to find a uid
+    find / uid 1001
+    find /etc uid 1001
+
+visudo > to add a user to sudo file
+
+man 8 sudo > sudo manaual pages

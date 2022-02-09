@@ -1,0 +1,24 @@
+Root previlege is recommended
+
+systemctl poweroff > switch off the system/server
+
+systemctl shutdown > switch off the system/server
+    systemctl shutdown -h now (without notification)
+    systemctl shutdown -h +10 (10 min from now, sends notification)
+    systemctl shutdown -c (to cancel the shutdown, sends notification)
+    systemctl shutdown -h +10 "notification txt"
+    systemctl shutdown -h 22:15(24hr format )
+    systemctl shutdown -r (shutdown, reboot)
+    systemctl shutdown -H (halt)
+
+systemctl reboot > to reboot the system/server
+
+systemctl halt > stop the server without shutting down
+
+sleep mode > suspend, hibernate, hybrid-sleep, suspend-then-hibernate
+    systemctl suspend (session will be stored in RAM, halts system)
+    systemctl hibernate (session will be stored in disk, press powerbutton to wakeup)
+    systemctl hybrid-sleep (session stored in RAM and disk, powerbutton to wakeup)
+    systemctl suspend-then-hibernate (suspend and then hibernate)
+
+schedule to reboot - cron jobs(scheduler)

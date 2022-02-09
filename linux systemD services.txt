@@ -1,0 +1,42 @@
+linux initialization - linux machine/server starts with services/processess under systemd(initialization)
+    sysv, bsd, lsb initialization are legacy written in shell.
+    systemd initialization is more robust and written in C.
+    /etc/systemd/system
+    To verify initialization is systemd cd /run/systemd/system (or) stat /sbin/init
+    stat /proc/1/exec shows initialization(systemd/sysv/bsd/lsb)
+    ps -p 1 (process id PID 1 is systemd,mother of all processess)
+    Daemon - a program that runs continuously and exists for the purpose of handling periodic service requests that a computer system expects to receive.
+
+ps -ef (shows all the processess running in the system/machine)
+
+pstree -p (shows parent process and child process)
+
+pstree -ps PID (shows parent and child process of a given PID process id)
+
+ps -eo pid,comm (shows only PID and command running)
+
+man ps (ps manual pages)
+
+cd /usr/lib/systemd (shows all services unit files)
+
+list services and state > systemctl (shows all the services)
+    systemctl > services.txt (to clipboard)
+    cat services.txt (shows all the services on clipboard)
+    systemctl --all (includes inactive/dead services)
+    systemctl list-unit-files (file information)
+    systemctl list-unit-files --type=service (shows service only and state)
+    systemctl list-unit-files --type=service --state=enabled/disabled/static (shows all the enabled/disabled/static services)
+    systemctl enable "servicename" (create symbolic link, which starts service during initialization/systemstart/boot)
+    systemctl disable "servicename" (disables the service during boot, do not disable a serive unless you are sure)
+
+system status
+    systemctl status "service" ex: httpd
+    systemctl enable --now "service"
+    systemctl stop "service"
+    systemctl start "service"
+    systemctl restart "service"
+    systemctl kill "service" (kill a paricular service)
+    systemctl kill -9 "service" (kill a service immediately)
+
+Analyze system startup
+    systemd-analyze blame

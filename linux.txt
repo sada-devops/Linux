@@ -1,0 +1,95 @@
+rhe v8 for enterprise
+
+/etc > configuration files, service(systemctl)
+/bin > binary files
+
+cd > change directory
+    cd ~ (home directory)
+    cd ..(previous directory)
+
+pwd > current working directory
+
+mkdir > create directory
+
+man > manual pages
+    man "command"
+
+ls > list files/directory
+    ls-lr (list all files)
+    ls-lrt (includes time stamps)
+    ls-lar (hidden files)
+
+cat > read a file
+
+tree > list files in hirearchy
+
+yum > to install packages in RHE
+    yum install "package"
+    yum search "package" (to search for a package)
+    yum update
+
+useradd > to add a user
+    useradd "username"
+
+userdel > to delete a user
+    userdel "username"
+
+passwd > to add password to a user
+    passwd "username"
+
+uname > os information
+    uname -a (kernel version)
+    cat /etc/redhat-release
+
+systemctl > service command
+    systemctl status "service" ex: httpd
+    systemctl enable --now "service"
+    systemctl stop "service"
+    systemctl start "service"
+    systemctl restart "service"
+
+uptime > to check uptime of the server
+
+head > to read top most lines in a file
+    head /etc/passwd
+    head -10 /etc/passwd
+
+tail > to read bottom most lines in a file
+    tail /etc/passwd
+    tail -10 /etc/passwd
+
+more > shows lines in a single page
+
+less > shows lines in multiple pages
+
+vi/nano > editor
+
+ps > shows processess
+    ps -ef | grep -i ssh (check ssh process)
+    ps aux (shows all process)
+    kill PID (to kill a process id)
+
+chmod (permissions)
+    chmod 775 filename (execute a file permission)
+    chmod 400 filename (read only permission)
+
+free (to check memory)
+    free -a
+
+cp > copy
+
+mv > move
+
+mv > rename as well
+
+rm > remove (careful while using remove)
+
+hostname > shows hostname
+
+ping > to check ping status
+
+telnet > to check port status
+
+wget > to get file from internet
+    wget link
+

@@ -1,0 +1,68 @@
+Every file and directory has three levels of ownership
+    user, group, others
+    multiple levels of access > read, write, execute/access
+    three types of privilages > owner, group, others(world)
+
+selinux, apparmor - security tools in linux for strong security access
+
+Every file has 6 permission mode > read, write, execute, stickybit, setuid, setgid.
+
+stat --format=%a:%A:%U:%G /etc (to check the permissions of a directory/file)
+
+mkdir > to create a directory
+    mkdir -p directory/subdirectory (to create a directory and a subdirectory)
+    mkdir directory/subdirectory (to create a subdirectory in an existing directory)
+    mkdir -m 0700 directory (create a directory with user only permission)
+
+r w x = rwx
+4 2 1 =     (default values)
+      = 0400 (read only)
+    stickybit 1400
+    setgid 2400
+    setuid 4400
+
+touch > to create a file
+    touch file{01..100}test.doc (to create files from 01 to 100 in batch)
+
+tree > list files/directory in hirearchy
+
+relative and obsolute file paths
+    cd / (obsolute file paths from here) /etc
+    relative filepath are one with in a directory /home/user/Downloads
+
+remove files/directory
+    rm filename
+    rm -v filename (verbose-shows notification)
+    rm -iv filename (prompt for confirmation)
+    rm -rf (recursive forced)
+
+cp (copy)
+    cp -rv (recursive verbose)
+
+mv (rename)
+    mv -v filename newfilename
+
+chmod (file permissions)
+    chmod -v 0600 filename (octal notation)
+    chmod -v g+w,o+w filename (symbolic notation)
+    chmod -v u-w filename (removes write perms for user)
+    chmod -v 0400 filename* (change all files perms in a given directory)
+    chmod -v 0400 filename filename2 filename3 (multiple files at a time)
+
+chown (file ownership)
+    chown -v username:usergroup filename
+
+umask (default file permissions)
+    umask -S (shows permissions for U, G, O)
+    vi /etc/login.defs (to change umask never recommended)
+
+ln > links (to create shortcuts/links to files/directory)
+    softlink - for files/directory
+    hardlink - only for files
+    ln -s /home/user/filename newfilename
+    ln -hl /home/user/filename newfilename (hardlink data is intact in one of the files when removed, use as a backup)
+
+special modes (setuid, setgid, stickybit)
+    stickybit - applies to directory with files owned by multiple users, restricts move,delete
+    chmod -v 1770
+    setgid > chmod 2770 - applies the owner group permissions to all the files
